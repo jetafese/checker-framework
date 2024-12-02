@@ -34,15 +34,22 @@ public class DivZeroTests {
         @NonZero int f = mz + nz;
     }
 
-    int divide(@MaybeZero int mz, @NonZero int nz) {
+    @MaybeZero
+    int divideMZ(@MaybeZero int mz, @NonZero int nz) {
+        return mz / nz;
+    }
+
+    @NonZero
+    int divideNZ(@NonZero int mz, @NonZero int nz) {
         return mz / nz;
     }
 
     void testDivision(@MaybeZero int mz, @NonZero int nz) {
         // valid operations for division
-        @MaybeZero int a = divide(mz, nz);
+        @MaybeZero int a = divideMZ(mz, nz);
+        @NonZero int d = divideNZ(nz, nz);
         // :: error: (argument.type.incompatible)
-        @MaybeZero int b = divide(nz, mz);
-        @MaybeZero int c = divide(nz, nz);
+        @MaybeZero int b = divideMZ(nz, mz);
+        @MaybeZero int c = divideMZ(nz, nz);
     }
 }
