@@ -1,5 +1,5 @@
-import org.checkerframework.checker.divzero.qual.NonZero;
 import org.checkerframework.checker.divzero.qual.MaybeZero;
+import org.checkerframework.checker.divzero.qual.NonZero;
 
 /** Basic test of subtyping. */
 public class Basics {
